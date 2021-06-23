@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-app.listen(3030,()=> console.log('servidor corriendo en el puerto 3030'));
-app.get('/',(req,res)=> res.send('bienvenidos'));
-
+let port = 3030
 app.use(express.static('public'));
 
 app.get('/',(req,res)=> res.sendFile(path.join(__dirname,'/views/index.html')));
@@ -14,3 +12,5 @@ app.get('/hamilton',(req,res)=>res.sendFile(path.join(__dirname,'views','hamilto
 app.get('/hopper',(req,res)=>res.sendFile(path.join(__dirname,'views','hopper.html')));
 app.get('/lovelace',(req,res)=>res.sendFile(path.join(__dirname,'views','lovelace.html')));
 app.get('/turing',(req,res)=>res.sendFile(path.join(__dirname,'views','turing.html')));
+
+app.listen(port,()=> console.log('servidor corriendo en el puerto 3030'));
